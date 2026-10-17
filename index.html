@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walimatul Urus | Hawa & Najmuddin</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    /* Romantic French Garden & Lace Wedding Calligraphy & Serifs */
+    @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+    /* Local Beautique & Handwrite Calligraphy Fallback */
+    @font-face {
+      font-family: 'Beautique';
+      src: url('assets/fonts/Beautique.woff') format('woff'),
+           url('fonts/Beautique.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --olive-dark: #1a2e1d;
+      --olive-primary: #2b4530;
+      --olive-light: #44634a;
+      --sage-soft: #e3ebd3;
+      --cream-ivory: #faf8f2;
+      --gold-accent: #c4a76c;
+      --gold-dark: #8e733e;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #121c13;
+      color: #1e3221;
+      overflow-x: hidden;
+      letter-spacing: 0.01em;
+    }
+
+    /* Romantic wedding calligraphy matching the front lace card */
+    .font-script, .font-calligraphy {
+      font-family: 'Pinyon Script', 'Great Vibes', 'Beautique', cursive;
+    }
+
+    /* Classical Roman Serif for Walimatul Urus, Card Headings & BUKA pill */
+    .font-serif-title, .font-heading {
+      font-family: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: 0.18em;
+    }
+
+    /* Timeless Garamond Serif for Book-pressed Parchment Narrative */
+    .font-serif-classic {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* Sacred Arabic Calligraphy */
+    .font-arabic {
+      font-family: 'Amiri', serif;
+    }
+
+    /* Fixed Clean Impressionist Background: Always visible, seamless from landing to end */
+    .bg-painting-fixed {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bg-painting-fixed img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Floating music disc animation */
+    @keyframes spin-slow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin-slow 10s linear infinite;
+    }
+
+    /* Floating petals / leaves canvas */
+    #petals-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 40;
+    }
+
+    /* Card-themed subtle pulse for the Buka button */
+    @keyframes pulseCardTheme {
+      0%, 100% {
+        box-shadow: 0 10px 25px -4px rgba(26, 46, 29, 0.3), 0 0 0 0 rgba(196, 167, 108, 0.45);
+        transform: translateY(0);
+      }
+      50% {
+        box-shadow: 0 14px 30px -4px rgba(26, 46, 29, 0.4), 0 0 0 7px rgba(196, 167, 108, 0.18);
+        transform: translateY(-2px);
+      }
+    }
+    .pulse-card-theme {
+      animation: pulseCardTheme 2.8s infinite ease-in-out;
+    }
+
+    /* Gentle floating motion for the cover card while waiting for tap */
+    @keyframes gentleFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+    .animate-gentle-float {
+      animation: gentleFloat 4s ease-in-out infinite;
+    }
+
+    /* Cover Card Opening Transition Motion on Tap */
+    @keyframes coverOpening {
+      0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        box-shadow: 0 25px 60px -10px rgba(18, 30, 20, 0.45);
+        filter: brightness(1);
+      }
+      35% {
+        transform: translateY(-20px) scale(1.035) rotate(-0.5deg);
+        box-shadow: 0 42px 75px -10px rgba(18, 30, 20, 0.55), 0 0 35px rgba(255, 235, 175, 0.5);
+        filter: brightness(1.05);
+      }
+      70% {
+        transform: translateY(-8px) scale(1.015) rotate(0.3deg);
+        box-shadow: 0 30px 65px -10px rgba(18, 30, 20, 0.45);
+        filter: brightness(1.02);
+      }
+      100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        box-shadow: 0 25px 60px -10px rgba(18, 30, 20, 0.45);
+        opacity: 1;
+        filter: brightness(1);
+      }
+    }
+    .cover-opening-motion {
+      animation: coverOpening 1.1s cubic-bezier(0.25, 1, 0.35, 1);
+      will-change: transform, opacity, box-shadow, filter;
+    }
+
+    /* Frosted glass parchment card styling */
+    .glass-card {
+      background: rgba(251, 249, 244, 0.93);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 14px 36px -8px rgba(18, 32, 20, 0.22), 0 2px 8px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px dashed rgba(68, 99, 74, 0.28);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(250, 248, 242, 0.4);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #7d9681;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="flex justify-center min-h-screen selection:bg-emerald-100 selection:text-emerald-950">
+
+  <!-- ======================================================== -->
+  <!-- 1. UNIVERSAL FIXED BACKGROUND: SAME PAGE LANDING & DETAILS -->
+  <!-- Clean Impressionist Landscape Painting without any dark tint -->
+  <!-- ======================================================== -->
+  <div class="bg-painting-fixed">
+    <img id="globalBgImg" src="assets/bg.jpg" onerror="this.src='bg.jpg'" alt="Impressionist Garden Oil Painting Background">
+    <!-- Very soft natural lighting layer (no dark mask) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-black/15 pointer-events-none"></div>
+  </div>
+
+  <!-- Canvas for falling flower petals & leaves -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- Background Music Audio Player -->
+  <audio id="weddingBgAudio" loop preload="auto">
+    <source src="assets/song.mp3" type="audio/mpeg">
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Central Mobile-First Wrapper (Max-width 440px) -->
+  <div id="mainContainer" class="w-full max-w-[440px] min-h-screen relative z-10 flex flex-col justify-between">
+
+    <!-- FLOATING TOP CONTROLS (Music + Replay Envelope + Edit Details) -->
+    <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
+      <!-- Replay Envelope Button -->
+      <button onclick="replayEnvelope()" title="Buka Semula Muka Hadapan" class="bg-white/95 text-[#1e3221] p-2.5 rounded-full shadow-lg border border-[#c4a76c]/40 hover:scale-105 active:scale-95 transition-all flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </button>
+
+      <!-- Edit Button -->
+      <button onclick="openEditorModal()" title="Ubah Maklumat Kad" class="bg-white/95 text-[#1e3221] p-2.5 rounded-full shadow-lg border border-[#c4a76c]/40 hover:scale-105 active:scale-95 transition-all flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        </svg>
+      </button>
+
+      <!-- Music Toggle Button -->
+      <button id="musicToggleBtn" onclick="toggleMusic()" title="Muzik Latar" class="bg-[#1e3221] text-[#f7f5ee] p-2.5 rounded-full shadow-lg border border-[#c4a76c]/50 hover:scale-105 active:scale-95 transition-all flex items-center justify-center">
+        <svg id="musicIconOn" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 animate-spin-slow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+        </svg>
+        <svg id="musicIconOff" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- 2. FRONT PAGE: LANDING VIEW WITH USER'S FIRST ASSET      -->
+    <!-- Clean Impressionist Background with Elegant Cover Asset   -->
+    <!-- ======================================================== -->
+    <section id="heroLandingSection" class="w-full min-h-[100dvh] flex flex-col items-center justify-center p-4 py-8 relative z-20">
+      
+      <!-- Interactive Cover Stage: Completely Clean & Unblocked Card Asset -->
+      <div id="coverAssetStage" class="relative w-full max-w-[330px] sm:max-w-[365px] aspect-[726/1024] flex items-center justify-center cursor-pointer select-none group" onclick="triggerOpenInvitation()">
+
+        <!-- THE MAIN COVER ASSET (Uploaded Image - 100% Unobstructed) -->
+        <div id="coverCardWrapper" class="animate-gentle-float relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 ease-out"
+             style="box-shadow: 0 25px 60px -10px rgba(18, 30, 20, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.65);">
+          <img id="coverAssetImg" 
+               src="assets/cover.png" 
+               onerror="this.src='cover.png'" 
+               alt="Walimatul Urus Hawa & Najmuddin - Save The Date" 
+               class="w-full h-full object-cover select-none pointer-events-none" />
+          
+          <!-- Subtle lighting overlay for realistic paper sheen -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-black/5 via-transparent to-white/15 pointer-events-none"></div>
+        </div>
+
+      </div>
+
+      <!-- BUKA BUTTON & PROMPT: Positioned below the card so it NEVER blocks the card -->
+      <div id="bukaBtnContainer" class="mt-5 sm:mt-6 flex flex-col items-center z-30 transition-all duration-500">
+        
+        <!-- Elegant Pill Button Matching the Card Theme (Ivory, Olive & Antique Gold) -->
+        <button onclick="triggerOpenInvitation()" 
+                title="Sentuh untuk Buka Jemputan"
+                class="pulse-card-theme group relative flex items-center gap-3 px-6 py-2.5 rounded-full cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 border border-[#c4a76c]/70"
+                style="background: rgba(251, 249, 244, 0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+          
+          <!-- Inner delicate dashed border -->
+          <div class="absolute inset-[3px] rounded-full border border-dashed border-[#859885]/40 pointer-events-none"></div>
+
+          <!-- Medallion Seal in Deep Olive Green & Gold -->
+          <span class="relative z-10 w-7 h-7 rounded-full bg-[#1a2e1d] text-[#faf8f2] flex items-center justify-center text-xs shadow-xs border border-[#c4a76c]/60 group-hover:rotate-12 transition-transform duration-300">
+            ✉
+          </span>
+
+          <!-- Typography in Card Style: Deep Olive Serif Title -->
+          <span class="relative z-10 font-serif-title text-xs tracking-[0.24em] text-[#1a2e1d] font-bold uppercase pt-0.5">
+            BUKA JEMPUTAN
+          </span>
+
+          <!-- Subtle downward indicator -->
+          <span class="relative z-10 text-[#44634a] text-xs font-semibold group-hover:translate-y-0.5 transition-transform duration-300">
+            ↓
+          </span>
+        </button>
+
+        <!-- Hint text beneath the button -->
+        <p id="scrollHint" class="mt-2.5 text-center text-[11px] text-white/95 font-medium tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          Sentuh kad atau butang untuk membuka
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 3. MAIN INVITATION DETAILS SECTION                       -->
+    <!-- Frosted Glass Parchment Cards directly on the same bg    -->
+    <!-- ======================================================== -->
+    <main id="detailsSection" class="w-full flex flex-col px-4 py-8 space-y-6 relative z-10 pb-20">
+
+      <!-- CARD 1: HERO / BANNER -->
+      <section class="glass-card rounded-3xl p-6 sm:p-7 text-center">
+        <!-- Bismillah Calligraphy -->
+        <div class="font-arabic text-2xl text-[#1a2e1d] mb-2.5 tracking-wide">
+          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        </div>
+
+        <p class="font-serif-title text-[11px] tracking-[0.28em] uppercase text-[#2b4530] font-semibold mb-2">
+          Walimatul Urus
+        </p>
+
+        <!-- Parents Names -->
+        <div class="my-3 text-[#2a3c2e] font-serif-classic leading-relaxed">
+          <p class="font-semibold text-base sm:text-lg" id="parentFather">Rosli Bin Rais</p>
+          <p class="text-[#8e733e] italic my-0.5 text-sm">&</p>
+          <p class="font-semibold text-base sm:text-lg" id="parentMother">Siti Norzaini Binti Salim</p>
+        </div>
+
+        <p class="font-serif-classic text-sm sm:text-[14px] text-[#344b38] my-3.5 max-w-xs mx-auto leading-relaxed">
+          Dengan penuh rasa kesyukuran ke hadrat Ilahi, kami menjemput Dato' / Datin / Tuan / Puan / Encik / Cik sekeluarga hadir menyerikan majlis perkahwinan anakanda kami tercinta:
+        </p>
+
+        <!-- Bride & Groom Highlight: Pinyon Script Matching Front Lace Card -->
+        <div class="py-6 my-2 border-y border-[#2b4530]/15 bg-white/45 rounded-2xl">
+          <h2 id="brideFullName" class="font-script text-4xl sm:text-5xl text-[#1a2e1d] font-normal leading-tight">
+            Nur Hawa Izzatie
+          </h2>
+          <div class="flex items-center justify-center my-2 gap-3">
+            <span class="h-[1px] w-12 bg-[#c4a76c]"></span>
+            <span class="font-serif-classic text-base text-[#8e733e] italic font-semibold">&</span>
+            <span class="h-[1px] w-12 bg-[#c4a76c]"></span>
+          </div>
+          <h2 id="groomFullName" class="font-script text-4xl sm:text-5xl text-[#1a2e1d] font-normal leading-tight">
+            Muhammad Najmuddin
+          </h2>
+        </div>
+
+        <!-- Surah Ar-Rum : 21 -->
+        <div class="mt-4 pt-3 text-center">
+          <p class="font-arabic text-base sm:text-lg text-[#1a2e1d] mb-1.5 leading-relaxed">
+            وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+          </p>
+          <p class="text-xs sm:text-[13px] text-[#44634a] italic font-serif-classic leading-relaxed">
+            "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+          </p>
+          <p class="text-[10px] text-[#8e733e] font-serif-title tracking-wider mt-1">— Surah Ar-Rum : 21 —</p>
+        </div>
+      </section>
+
+      <!-- CARD 2: COUNTDOWN & TARIKH -->
+      <section class="glass-card rounded-3xl p-6 text-center">
+        <h3 class="font-serif-title text-xs tracking-[0.2em] uppercase text-[#2b4530] mb-1.5 font-bold">
+          Menghitung Hari Bahagia
+        </h3>
+        <p id="weddingDateDisplay" class="font-serif-classic text-lg font-bold text-[#1a2e1d] mb-0.5">
+          Sabtu, 26 Disember 2026
+        </p>
+        <p class="font-serif-classic text-sm text-[#44634a] mb-4">
+          11:00 Pagi — 4:00 Petang
+        </p>
+
+        <!-- Countdown Boxes -->
+        <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto mb-5">
+          <div class="bg-white/85 p-2 rounded-xl border border-[#c4a76c]/40 shadow-xs flex flex-col items-center">
+            <span id="days" class="font-serif-classic text-2xl sm:text-3xl font-bold text-[#1a2e1d]">00</span>
+            <span class="font-serif-title text-[9px] uppercase tracking-wider text-[#44634a] font-medium">Hari</span>
+          </div>
+          <div class="bg-white/85 p-2 rounded-xl border border-[#c4a76c]/40 shadow-xs flex flex-col items-center">
+            <span id="hours" class="font-serif-classic text-2xl sm:text-3xl font-bold text-[#1a2e1d]">00</span>
+            <span class="font-serif-title text-[9px] uppercase tracking-wider text-[#44634a] font-medium">Jam</span>
+          </div>
+          <div class="bg-white/85 p-2 rounded-xl border border-[#c4a76c]/40 shadow-xs flex flex-col items-center">
+            <span id="minutes" class="font-serif-classic text-2xl sm:text-3xl font-bold text-[#1a2e1d]">00</span>
+            <span class="font-serif-title text-[9px] uppercase tracking-wider text-[#44634a] font-medium">Minit</span>
+          </div>
+          <div class="bg-white/85 p-2 rounded-xl border border-[#c4a76c]/40 shadow-xs flex flex-col items-center">
+            <span id="seconds" class="font-serif-classic text-2xl sm:text-3xl font-bold text-[#1a2e1d]">00</span>
+            <span class="font-serif-title text-[9px] uppercase tracking-wider text-[#44634a] font-medium">Saat</span>
+          </div>
+        </div>
+
+        <!-- Calendar Save Options: Google Calendar & Apple Calendar -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-xs mx-auto">
+          <!-- Google Calendar Button -->
+          <a id="calGoogleBtn" href="#" onclick="addToGoogleCalendar(); return false;" 
+             class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-full bg-[#1e3221] text-white hover:bg-[#28422c] transition-all shadow-sm active:scale-95 border border-[#c4a76c]/40">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            Google Calendar
+          </a>
+
+          <!-- Apple Calendar Button -->
+          <a id="calAppleBtn" href="#" onclick="addToAppleCalendar(); return false;" 
+             class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-full bg-white/95 text-[#1e3221] hover:bg-[#faf8f2] transition-all shadow-sm active:scale-95 border border-[#c4a76c]/60">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 170 170">
+              <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.58-7.75-11.65-14.13-5.99-9.33-10.67-20.24-14.04-32.74-3.37-12.5-5.06-23.77-5.06-33.82 0-14.24 3.79-25.74 11.37-34.5 7.58-8.76 17.06-13.25 28.43-13.48 4.79 0 10.15 1.25 16.08 3.75 5.93 2.5 9.87 3.81 11.83 3.93 1.96-.12 6.01-1.49 12.15-4.11 6.14-2.62 11.45-3.83 15.93-3.64 8.71.43 16.14 3.4 22.3 8.91s9.92 12.65 11.27 21.43c-7.84 4.79-11.86 11.43-12.06 19.92-.2 8.49 3.59 15.66 11.37 21.52 3.92 2.94 8.27 4.9 13.06 5.88-2.61 7.62-5.77 15.14-9.48 22.56zM119.22 31.84c0-6.1-2.18-11.89-6.54-17.37-4.36-5.48-9.91-9.17-16.65-11.07-.11 1.09-.16 2.13-.16 3.13 0 5.88 2.34 11.75 7.02 17.62 4.68 5.87 10.34 9.53 16.98 10.98.22-1.09.33-2.18.33-3.29z"/>
+            </svg>
+            Apple Calendar
+          </a>
+        </div>
+      </section>
+
+      <!-- CARD 3: DOA BUAT MEMPELAI -->
+      <section class="glass-card rounded-3xl p-6 sm:p-7 text-center">
+        <!-- Delicate Decorative Top Ornament -->
+        <div class="flex items-center justify-center gap-3 mb-2">
+          <span class="h-[1px] w-8 bg-[#c4a76c]/60"></span>
+          <span class="text-xs text-[#8e733e] font-serif-classic">❧ Doa Restu ❧</span>
+          <span class="h-[1px] w-8 bg-[#c4a76c]/60"></span>
+        </div>
+
+        <h3 class="font-serif-title text-xs tracking-[0.24em] uppercase text-[#2b4530] font-bold mb-3">
+          Doa Buat Mempelai
+        </h3>
+
+        <!-- Hadith Sunnah Doa Pengantin in Arabic -->
+        <div class="py-3 px-3.5 bg-white/75 rounded-2xl border border-[#c4a76c]/35 shadow-2xs mb-3.5">
+          <p class="font-arabic text-xl sm:text-2xl text-[#1a2e1d] leading-loose mb-1.5" dir="rtl">
+            بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+          </p>
+          <p class="font-serif-classic text-xs sm:text-[13px] text-[#3e5643] italic leading-relaxed">
+            "Semoga Allah memberkahimu dan memberkahi atasmu serta menghimpunkan kamu berdua dalam kebaikan."
+          </p>
+          <p class="text-[10px] text-[#8e733e] font-serif-title tracking-wider mt-1.5">
+            — (HR. Abu Daud, At-Tirmidzi & Ibnu Majah) —
+          </p>
+        </div>
+
+        <!-- Untaian Doa Kebahagiaan -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-[#edf4e7]/60 border border-[#2b4530]/15 text-[#1f3422] text-xs sm:text-[13px] font-serif-classic leading-relaxed space-y-2">
+          <p id="doaTextDisplay">
+            "Ya Allah, berkatilah ikatan perkahwinan anakanda kami ini. Kurniakanlah sakinah, mawaddah dan warahmah dalam bahtera rumah tangga mereka. Tiupkanlah keharmonian dan ketenteraman, limpahkanlah rezeki yang halal, serta anugerahkanlah zuriat yang soleh dan solehah yang berbakti kepada agama dan keluarga. Kekalkanlah kasih sayang mereka hingga ke jannah."
+          </p>
+          <div class="pt-2 flex items-center justify-center gap-2">
+            <span class="h-[1px] w-8 bg-[#c4a76c]"></span>
+            <span class="font-serif-classic text-xs sm:text-sm text-[#8e733e] italic font-semibold">Aamiin Ya Rabbal 'Alamin</span>
+            <span class="h-[1px] w-8 bg-[#c4a76c]"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 4: ATUR CARA MAJLIS -->
+      <section class="glass-card rounded-3xl p-6">
+        <div class="text-center mb-5">
+          <h3 class="font-serif-title text-xs tracking-[0.2em] uppercase text-[#2b4530] font-bold mb-1">
+            Atur Cara Majlis
+          </h3>
+          <p class="font-serif-classic text-sm text-[#44634a]">Jadual perjalanan majlis perkahwinan</p>
+        </div>
+
+        <div class="max-w-sm mx-auto space-y-3 relative pl-3 before:content-[''] before:absolute before:left-6 before:top-2 before:bottom-2 before:w-0.5 before:bg-[#859885]/60">
+          <div class="flex items-start gap-3 relative">
+            <div class="w-6 h-6 rounded-full bg-[#1e3221] text-white flex items-center justify-center text-[10px] font-bold shadow shrink-0 z-10 font-serif-classic">1</div>
+            <div class="bg-white/85 p-3 rounded-xl border border-[#c4a76c]/30 shadow-xs flex-1">
+              <span class="text-[11px] font-bold text-[#1a2e1d] block">11:00 Pagi</span>
+              <p class="font-serif-classic text-[13px] text-[#44634a]">Ketibaan Tetamu & Jamuan Makan Bermula</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 relative">
+            <div class="w-6 h-6 rounded-full bg-[#1e3221] text-white flex items-center justify-center text-[10px] font-bold shadow shrink-0 z-10 font-serif-classic">2</div>
+            <div class="bg-white/85 p-3 rounded-xl border border-[#c4a76c]/30 shadow-xs flex-1">
+              <span class="text-[11px] font-bold text-[#1a2e1d] block">12:30 Tengah Hari</span>
+              <p class="font-serif-classic text-[13px] text-[#44634a]">Perarakan Masuk Pasangan Pengantin & Makan Beradab</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 relative">
+            <div class="w-6 h-6 rounded-full bg-[#1e3221] text-white flex items-center justify-center text-[10px] font-bold shadow shrink-0 z-10 font-serif-classic">3</div>
+            <div class="bg-white/85 p-3 rounded-xl border border-[#c4a76c]/30 shadow-xs flex-1">
+              <span class="text-[11px] font-bold text-[#1a2e1d] block">01:30 Petang</span>
+              <p class="font-serif-classic text-[13px] text-[#44634a]">Upacara Memotong Kek & Sesi Bergambar</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 relative">
+            <div class="w-6 h-6 rounded-full bg-[#1e3221] text-white flex items-center justify-center text-[10px] font-bold shadow shrink-0 z-10 font-serif-classic">4</div>
+            <div class="bg-white/85 p-3 rounded-xl border border-[#c4a76c]/30 shadow-xs flex-1">
+              <span class="text-[11px] font-bold text-[#1a2e1d] block">04:00 Petang</span>
+              <p class="font-serif-classic text-[13px] text-[#44634a]">Majlis Bersurai</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 5: POTRET BAHAGIA (GALERI MEMPELAI) -->
+      <section class="glass-card rounded-3xl p-6 sm:p-7 text-center">
+        <!-- Delicate Header Ornament -->
+        <div class="flex items-center justify-center gap-3 mb-1.5">
+          <span class="h-[1px] w-8 bg-[#c4a76c]/60"></span>
+          <span class="text-xs text-[#8e733e]">❧</span>
+          <span class="h-[1px] w-8 bg-[#c4a76c]/60"></span>
+        </div>
+        <p class="font-script text-2xl sm:text-3xl text-[#1a2e1d] mb-4">
+          Hawa &amp; Najmuddin
+        </p>
+
+        <!-- Main Featured Showcase Frame -->
+        <div class="relative w-full max-w-[340px] aspect-[4/5] mx-auto rounded-2xl overflow-hidden border-2 border-[#c4a76c]/70 shadow-lg bg-stone-100 group cursor-pointer" onclick="openCurrentInLightbox()" title="Sentuh untuk paparan skrin penuh">
+          <img id="galleryMainImg" 
+               src="assets/gallery/gallery-1.jpg" 
+               onerror="this.src='gallery-1.jpg'" 
+               alt="Potret Mempelai Hawa & Najmuddin" 
+               class="w-full h-full object-cover object-center transition-all duration-500 ease-out">
+          
+          <!-- Subtle vignette gradient -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/15 pointer-events-none"></div>
+
+          <!-- Bottom Caption on Image -->
+          <div class="absolute bottom-0 inset-x-0 p-3.5 text-center text-white pointer-events-none">
+            <p id="galleryCaptionTitle" class="font-serif-title text-xs tracking-wider uppercase font-semibold text-amber-200 drop-shadow">
+              Kuntuman Kasih
+            </p>
+            <p id="galleryCaptionDesc" class="font-serif-classic text-xs text-white/95 italic drop-shadow mt-0.5">
+              Di bawah restu dan limpahan rahmat Ilahi
+            </p>
+          </div>
+
+          <!-- Zoom hint badge -->
+          <div class="absolute top-3 right-3 bg-black/40 backdrop-blur-xs text-white px-2 py-1 rounded-full border border-white/30 text-[10px] shadow-xs flex items-center gap-1 group-hover:scale-105 transition-transform">
+            <span>🔍</span>
+            <span class="font-sans font-medium text-[9px]">Penuh</span>
+          </div>
+
+          <!-- Previous / Next Floating Arrows -->
+          <button type="button" onclick="event.stopPropagation(); prevGallerySlide();" title="Gambar Sebelumnya" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/85 hover:bg-white text-[#1e3221] flex items-center justify-center shadow-md border border-[#c4a76c]/50 transition active:scale-90 text-sm font-bold">
+            &#10094;
+          </button>
+          <button type="button" onclick="event.stopPropagation(); nextGallerySlide();" title="Gambar Seterusnya" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/85 hover:bg-white text-[#1e3221] flex items-center justify-center shadow-md border border-[#c4a76c]/50 transition active:scale-90 text-sm font-bold">
+            &#10095;
+          </button>
+        </div>
+
+        <!-- 6 Interactive Thumbnails Strip -->
+        <div class="grid grid-cols-6 gap-1.5 max-w-[340px] mx-auto mt-3.5">
+          <button type="button" onclick="setGallerySlide(0)" class="gallery-thumb-btn aspect-square rounded-xl overflow-hidden border-2 border-[#1e3221] shadow-xs relative transition active:scale-95 group focus:outline-none" data-index="0" title="Kuntuman Kasih">
+            <img src="assets/gallery/gallery-1.jpg" onerror="this.src='gallery-1.jpg'" alt="Thumbnail 1" class="w-full h-full object-cover object-top">
+          </button>
+          <button type="button" onclick="setGallerySlide(1)" class="gallery-thumb-btn aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-[#c4a76c]/60 shadow-xs relative transition active:scale-95 group focus:outline-none opacity-70 hover:opacity-100" data-index="1" title="Cahaya Kebahagiaan">
+            <img src="assets/gallery/gallery-2.jpg" onerror="this.src='gallery-2.jpg'" alt="Thumbnail 2" class="w-full h-full object-cover object-center">
+          </button>
+          <button type="button" onclick="setGallerySlide(2)" class="gallery-thumb-btn aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-[#c4a76c]/60 shadow-xs relative transition active:scale-95 group focus:outline-none opacity-70 hover:opacity-100" data-index="2" title="Janji Hati">
+            <img src="assets/gallery/gallery-3.jpg" onerror="this.src='gallery-3.jpg'" alt="Thumbnail 3" class="w-full h-full object-cover object-center">
+          </button>
+          <button type="button" onclick="setGallerySlide(3)" class="gallery-thumb-btn aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-[#c4a76c]/60 shadow-xs relative transition active:scale-95 group focus:outline-none opacity-70 hover:opacity-100" data-index="3" title="Langkah Bersama">
+            <img src="assets/gallery/gallery-4.jpg" onerror="this.src='gallery-4.jpg'" alt="Thumbnail 4" class="w-full h-full object-cover object-center">
+          </button>
+          <button type="button" onclick="setGallerySlide(4)" class="gallery-thumb-btn aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-[#c4a76c]/60 shadow-xs relative transition active:scale-95 group focus:outline-none opacity-70 hover:opacity-100" data-index="4" title="Kedamaian Hati">
+            <img src="assets/gallery/gallery-5.jpg" onerror="this.src='gallery-5.jpg'" alt="Thumbnail 5" class="w-full h-full object-cover object-center">
+          </button>
+          <button type="button" onclick="setGallerySlide(5)" class="gallery-thumb-btn aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-[#c4a76c]/60 shadow-xs relative transition active:scale-95 group focus:outline-none opacity-70 hover:opacity-100" data-index="5" title="Senyuman Kasih">
+            <img src="assets/gallery/gallery-6.jpg" onerror="this.src='gallery-6.jpg'" alt="Thumbnail 6" class="w-full h-full object-cover object-top">
+          </button>
+        </div>
+
+        <p class="text-[10px] text-[#44634a] mt-2.5 italic font-serif-classic">
+          Sentuh foto untuk melihat paparan skrin penuh
+        </p>
+      </section>
+
+      <!-- CARD 6: LOKASI & NAVIGASI -->
+      <section class="glass-card rounded-3xl p-6 text-center">
+        <h3 class="font-serif-title text-xs tracking-[0.2em] uppercase text-[#2b4530] font-bold mb-1">
+          Lokasi Majlis
+        </h3>
+        <p id="venueName" class="font-serif-title text-base sm:text-lg font-bold text-[#1a2e1d] tracking-wider mb-1">Balik Pulau</p>
+        <p id="venueAddress" class="font-serif-classic text-sm text-[#44634a] max-w-xs mx-auto mb-5 leading-relaxed">
+          Ainaz Homestay, Kampung Perlis 11000 Balik Pulau, Pulau Pinang
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-2.5">
+          <a id="btnWaze" href="https://ul.waze.com/ul?place=ChIJsaPAmhXrSjARZ0aVROnOsfg&ll=5.31908040%2C100.20402200&navigate=yes&utm_campaign=live_map&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" class="flex items-center gap-1.5 px-3.5 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-xl text-xs font-semibold shadow-md transition-all active:scale-95">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 2.21.72 4.26 1.94 5.92L2.05 22l4.28-1.78C7.94 21.28 9.91 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+            Pandu Waze
+          </a>
+          <a id="btnGoogleMaps" href="https://maps.app.goo.gl/YMi93qBnztRChZ7S7" target="_blank" class="flex items-center gap-1.5 px-3.5 py-2 bg-[#1e3221] hover:bg-[#121f14] text-white rounded-xl text-xs font-semibold shadow-md transition-all active:scale-95">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Google Maps
+          </a>
+          <button onclick="copyAddress()" class="flex items-center gap-1 px-3 py-2 bg-white/90 hover:bg-white text-stone-700 rounded-xl text-xs font-medium border border-stone-300 shadow-xs transition active:scale-95">
+            <span id="copyAddrLabel">Salin Alamat</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- CARD 6: RSVP & UCAPAN -->
+      <section class="glass-card rounded-3xl p-6">
+        <div class="text-center mb-5">
+          <h3 class="font-serif-title text-xs tracking-[0.2em] uppercase text-[#2b4530] font-bold mb-1">
+            Pengesahan Kehadiran
+          </h3>
+          <p class="text-xs text-[#44634a]">Sila maklumkan kehadiran anda bagi membantu kelancaran majlis</p>
+        </div>
+
+        <form id="rsvpForm" onsubmit="handleRsvpSubmit(event)" class="bg-white/90 p-4 rounded-2xl border border-[#c4a76c]/30 shadow-xs space-y-3.5">
+          <div>
+            <label class="block text-xs font-semibold text-[#1a2e1d] mb-1">Nama Penuh *</label>
+            <input type="text" id="rsvpName" required placeholder="Contoh: Khairul Azman" class="w-full px-3 py-1.5 text-xs rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#2b4530]/40 bg-white">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-[#1a2e1d] mb-1">Status Kehadiran *</label>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <label class="flex items-center justify-center gap-1.5 p-2 rounded-xl border border-stone-200 cursor-pointer has-[:checked]:bg-[#edf4e7] has-[:checked]:border-[#1e3221] has-[:checked]:font-semibold bg-white">
+                <input type="radio" name="rsvpStatus" value="Hadir" checked class="text-[#1e3221] focus:ring-0">
+                Hadir
+              </label>
+              <label class="flex items-center justify-center gap-1.5 p-2 rounded-xl border border-stone-200 cursor-pointer has-[:checked]:bg-rose-100 has-[:checked]:border-rose-500 has-[:checked]:font-semibold bg-white">
+                <input type="radio" name="rsvpStatus" value="Tidak Hadir" class="text-rose-600 focus:ring-0">
+                Tidak Hadir
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-[#1a2e1d] mb-1">Bilangan Pax</label>
+            <select id="rsvpPax" class="w-full px-3 py-1.5 text-xs rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#2b4530]/40 bg-white">
+              <option value="1">1 Orang</option>
+              <option value="2" selected>2 Orang</option>
+              <option value="3">3 Orang</option>
+              <option value="4">4 Orang</option>
+              <option value="5">5 Orang</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-[#1a2e1d] mb-1">Ucapan & Doa</label>
+            <textarea id="rsvpWishes" rows="2" placeholder="Semoga ikatan perkahwinan Najmuddin & Hawa sentiasa dirahmati..." class="w-full px-3 py-1.5 text-xs rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#2b4530]/40 bg-white"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-2.5 bg-gradient-to-r from-[#1e3221] to-[#121f14] hover:from-[#2b4530] text-white font-semibold text-xs rounded-xl shadow-md transition active:scale-98">
+            Hantar RSVP & Ucapan
+          </button>
+        </form>
+
+        <div class="mt-6">
+          <div class="flex items-center justify-between mb-2.5">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-[#1a2e1d]">Buku Ucapan (<span id="wishesCount">0</span>)</h4>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="exportRsvpCsv()" title="Muat Turun Senarai RSVP (.CSV)" class="text-[10px] text-[#1e3221] font-semibold bg-[#edf4e7] border border-[#2b4530]/20 px-2 py-0.5 rounded-md hover:bg-[#dfeacf] transition active:scale-95 flex items-center gap-1">
+                📥 Muat Turun CSV
+              </button>
+              <span class="text-[10px] text-[#44634a]">Terkini</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Wishes List loaded from localStorage -->
+          <div id="wishesList" class="space-y-2 max-h-56 overflow-y-auto pr-1"></div>
+        </div>
+      </section>
+
+      <!-- CARD 7: HUBUNGI WARIS -->
+      <section class="glass-card rounded-3xl p-6">
+        <div class="text-center mb-4">
+          <h3 class="font-serif-title text-xs tracking-[0.2em] uppercase text-[#2b4530] font-bold mb-1">
+            Hubungi Waris
+          </h3>
+          <p class="text-xs text-[#44634a]">Sebarang pertanyaan boleh terus hubungi pihak keluarga</p>
+        </div>
+
+        <div class="space-y-2.5">
+          <div class="bg-white/85 p-3 rounded-xl border border-[#c4a76c]/30 flex items-center justify-between">
+            <div>
+              <p id="contactName1" class="text-xs font-bold text-[#1a2e1d]">En. Rosli (Bapa)</p>
+              <p id="contactPhoneDisplay1" class="text-[11px] text-[#44634a]">012-3456789</p>
+            </div>
+            <a id="contactWa1" href="https://wa.me/60123456789?text=Assalamualaikum" target="_blank" class="bg-emerald-600 text-white p-2 rounded-lg hover:bg-emerald-700 transition">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+            </a>
+          </div>
+
+          <div class="bg-white/85 p-3 rounded-xl border border-[#c4a76c]/30 flex items-center justify-between">
+            <div>
+              <p id="contactName2" class="text-xs font-bold text-[#1a2e1d]">Pn. Siti (Ibu)</p>
+              <p id="contactPhoneDisplay2" class="text-[11px] text-[#44634a]">019-8765432</p>
+            </div>
+            <a id="contactWa2" href="https://wa.me/60198765432?text=Assalamualaikum" target="_blank" class="bg-emerald-600 text-white p-2 rounded-lg hover:bg-emerald-700 transition">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 8: SALAM KAUT DIGITAL -->
+      <section class="glass-card rounded-3xl p-6 text-center">
+        <h3 class="font-serif-title text-xs tracking-[0.2em] uppercase text-[#2b4530] font-bold mb-1">
+          Salam Kaut / Hadiah Digital
+        </h3>
+        <p class="text-xs text-[#44634a] max-w-xs mx-auto mb-4">
+          Bagi tetamu yang berhasrat menitipkan tanda ingatan dan doa restu secara maya
+        </p>
+
+        <div class="bg-white/90 p-4 rounded-2xl border border-[#c4a76c]/30 shadow-xs max-w-xs mx-auto">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#edf4e7] border border-[#2b4530]/20 text-[#1a2e1d] text-[11px] font-bold mb-2.5">
+            <span id="bankNameDisplay">MAYBANK</span>
+          </div>
+
+          <p class="text-[11px] text-[#44634a] mb-0.5">Nombor Akaun:</p>
+          <p id="bankAccDisplay" class="font-mono text-base font-bold text-[#1a2e1d] tracking-wider mb-0.5">1642 8593 1044</p>
+          <p id="bankOwnerDisplay" class="text-xs font-semibold text-[#44634a] mb-3">Muhammad Najmuddin</p>
+
+          <button onclick="copyBankAccount()" class="w-full py-2 bg-[#1e3221] hover:bg-[#121f14] text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition active:scale-95 shadow-sm">
+            <span id="copyBankLabel">Salin Nombor Akaun</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="pt-4 text-center">
+        <!-- Couple walking together vignette -->
+        <div class="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-[#c4a76c] shadow-lg mb-3 bg-white/85 p-0.5 cursor-pointer group" onclick="openLightbox(3)" title="Sentuh untuk besarkan foto">
+          <img src="assets/gallery/gallery-4.jpg" onerror="this.src='gallery-4.jpg'" alt="Hawa & Najmuddin" class="w-full h-full object-cover object-top rounded-full group-hover:scale-110 transition-transform duration-500">
+        </div>
+
+        <p class="font-script text-3xl text-white drop-shadow-md mb-1">Terima Kasih</p>
+        <p class="text-xs text-white/95 drop-shadow max-w-xs mx-auto mb-4">
+          Kehadiran dan doa restu para tetamu sekalian amat kami hargai.
+        </p>
+        <div class="text-[11px] text-amber-100 font-semibold tracking-wider drop-shadow">
+          #NajmuddinHawaTillJannah &bull; 2026
+        </div>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- LIVE EDITOR MODAL -->
+  <div id="editorModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl border border-[#c4a76c] overflow-hidden my-6">
+      <div class="bg-gradient-to-r from-[#1e3221] to-[#121f14] text-white px-5 py-4 flex items-center justify-between">
+        <div>
+          <h3 class="font-semibold text-sm">Sunting Maklumat Kad Kahwin</h3>
+          <p class="text-[11px] text-[#e3ebd3]">Ubah maklumat pengantin, masa & tempat serta-merta</p>
+        </div>
+        <button onclick="closeEditorModal()" class="text-white/80 hover:text-white p-1">✕</button>
+      </div>
+
+      <div class="p-5 space-y-4 max-h-[75vh] overflow-y-auto text-xs">
+        <div class="border-b pb-3">
+          <h4 class="font-bold text-[#1e3221] mb-2">1. Maklumat Pasangan Pengantin</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Nama Penuh Pengantin Lelaki</label>
+              <input type="text" id="editGroom" class="w-full p-2 border rounded-lg" value="Muhammad Najmuddin">
+            </div>
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Nama Penuh Pengantin Perempuan</label>
+              <input type="text" id="editBride" class="w-full p-2 border rounded-lg" value="Nur Hawa Izzatie">
+            </div>
+          </div>
+        </div>
+
+        <div class="border-b pb-3">
+          <h4 class="font-bold text-[#1e3221] mb-2">2. Maklumat Ibu Bapa / Tuan Rumah</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Nama Bapa</label>
+              <input type="text" id="editFather" class="w-full p-2 border rounded-lg" value="En. Rosli">
+            </div>
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Nama Ibu</label>
+              <input type="text" id="editMother" class="w-full p-2 border rounded-lg" value="Pn. Siti">
+            </div>
+          </div>
+        </div>
+
+        <div class="border-b pb-3">
+          <h4 class="font-bold text-[#1e3221] mb-2">3. Tarikh & Waktu</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Tarikh Majlis (YYYY-MM-DD)</label>
+              <input type="date" id="editDate" class="w-full p-2 border rounded-lg" value="2026-12-26">
+            </div>
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Paparan Tarikh (Teks)</label>
+              <input type="text" id="editDateText" class="w-full p-2 border rounded-lg" value="Sabtu, 26 Disember 2026">
+            </div>
+          </div>
+        </div>
+
+        <div class="border-b pb-3">
+          <h4 class="font-bold text-[#1e3221] mb-2">4. Lokasi Majlis</h4>
+          <div class="space-y-2">
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Nama Tempat / Kawasan</label>
+              <input type="text" id="editVenueName" class="w-full p-2 border rounded-lg" value="Balik Pulau">
+            </div>
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Alamat Penuh</label>
+              <textarea id="editVenueAddress" rows="2" class="w-full p-2 border rounded-lg">Balik Pulau, Pulau Pinang</textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-b pb-3">
+          <h4 class="font-bold text-[#1e3221] mb-2">5. Hubungi Waris (WhatsApp)</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Nama Waris 1</label>
+              <input type="text" id="editContactName1" class="w-full p-1.5 border rounded-lg" value="En. Rosli (Bapa)">
+              <input type="text" id="editContactPhone1" class="w-full p-1.5 border rounded-lg mt-1" value="60123456789">
+            </div>
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Nama Waris 2</label>
+              <input type="text" id="editContactName2" class="w-full p-1.5 border rounded-lg" value="Pn. Siti (Ibu)">
+              <input type="text" id="editContactPhone2" class="w-full p-1.5 border rounded-lg mt-1" value="60198765432">
+            </div>
+          </div>
+        </div>
+
+        <div class="border-b pb-3">
+          <h4 class="font-bold text-[#1e3221] mb-2">6. Salam Kaut / Bank</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Nama Bank</label>
+              <input type="text" id="editBankName" class="w-full p-1.5 border rounded-lg" value="MAYBANK">
+            </div>
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Nombor Akaun</label>
+              <input type="text" id="editBankAcc" class="w-full p-1.5 border rounded-lg" value="164285931044">
+            </div>
+            <div>
+              <label class="block text-[11px] text-stone-600 mb-1">Pemegang Akaun</label>
+              <input type="text" id="editBankOwner" class="w-full p-1.5 border rounded-lg" value="Muhammad Najmuddin">
+            </div>
+          </div>
+        </div>
+
+        <div class="border-b pb-3">
+          <h4 class="font-bold text-[#1e3221] mb-2">7. Doa Buat Mempelai</h4>
+          <div>
+            <label class="block text-[11px] text-stone-600 mb-1">Untaian Doa Pengantin</label>
+            <textarea id="editDoaText" rows="3" class="w-full p-2 border rounded-lg text-xs leading-relaxed">"Ya Allah, berkatilah ikatan perkahwinan anakanda kami ini. Kurniakanlah sakinah, mawaddah dan warahmah dalam bahtera rumah tangga mereka. Tiupkanlah keharmonian dan ketenteraman, limpahkanlah rezeki yang halal, serta anugerahkanlah zuriat yang soleh dan solehah yang berbakti kepada agama dan keluarga. Kekalkanlah kasih sayang mereka hingga ke jannah."</textarea>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-[#1e3221] mb-2">8. Pengurusan Data RSVP & Google Sheets</h4>
+          <p class="text-[11px] text-stone-500 mb-2">Semua ucapan disimpan dalam pelayar ini. Anda juga boleh menyambungkannya ke Google Sheets secara automatik.</p>
+          <div class="flex items-center gap-2 mb-3">
+            <button type="button" onclick="exportRsvpCsv()" class="px-3 py-1.5 bg-[#edf4e7] border border-[#2b4530]/20 text-[#1e3221] text-xs font-semibold rounded-lg hover:bg-[#dfeacf]">
+              📥 Muat Turun Data (CSV)
+            </button>
+            <button type="button" onclick="resetRsvpData()" class="px-3 py-1.5 bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold rounded-lg hover:bg-rose-100">
+              🗑️ Padam / Kosongkan RSVP
+            </button>
+          </div>
+
+          <div class="pt-2 border-t">
+            <label class="block text-[11px] font-semibold text-[#1e3221] mb-1">🔗 Google Sheets Web App URL (Pilihan)</label>
+            <input type="url" id="editGoogleSheetsUrl" placeholder="https://script.google.com/macros/s/.../exec" class="w-full p-2 border rounded-lg text-xs font-mono bg-stone-50 text-stone-700">
+            <p class="text-[10px] text-stone-500 mt-1">Jika diisi, setiap RSVP tetamu akan dihantar terus ke Google Spreadsheet anda secara langsung.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-stone-50 border-t flex justify-end gap-2">
+        <button onclick="closeEditorModal()" class="px-4 py-2 text-xs font-semibold text-stone-600 hover:text-stone-800">
+          Batal
+        </button>
+        <button onclick="saveEditorData()" class="px-5 py-2 text-xs font-semibold bg-[#1e3221] hover:bg-[#121f14] text-white rounded-xl shadow transition">
+          Simpan & Kemas Kini
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHOTO LIGHTBOX MODAL -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex flex-col items-center justify-center p-4 transition-all duration-300" onclick="closeLightbox()">
+    <!-- Close button -->
+    <button onclick="closeLightbox()" title="Tutup Paparan" class="absolute top-4 right-4 text-white text-2xl font-bold bg-white/20 hover:bg-white/30 w-10 h-10 rounded-full flex items-center justify-center transition shadow-lg z-50">
+      &times;
+    </button>
+    <div class="relative max-w-sm sm:max-w-md w-full max-h-[85vh] flex flex-col items-center select-none" onclick="event.stopPropagation()">
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/25 bg-black/40">
+        <img id="lightboxImg" src="" alt="Paparan Penuh Potret" class="w-full max-h-[75vh] object-contain rounded-2xl">
+      </div>
+      <p id="lightboxCaption" class="mt-3 text-center text-white/95 text-xs sm:text-sm font-serif-classic italic tracking-wide drop-shadow-md px-4"></p>
+    </div>
+  </div>
+
+  <script>
+    let targetWeddingDate = new Date("2026-12-26T11:00:00").getTime();
+    let isMusicPlaying = false;
+    let audioCtx = null;
+    let musicInterval = null;
+    let isOpening = false;
+    const bgAudio = document.getElementById('weddingBgAudio');
+
+    // Trigger Open Motion on Tap
+    function triggerOpenInvitation() {
+      if (isOpening) return;
+      isOpening = true;
+
+      const coverCard = document.getElementById('coverCardWrapper');
+      const bukaContainer = document.getElementById('bukaBtnContainer');
+      const details = document.getElementById('detailsSection');
+
+      // 1. Play the background song uploaded by user
+      playWeddingMusic();
+
+      // 2. Subtle button feedback without permanently removing it
+      if (bukaContainer) {
+        bukaContainer.classList.add('scale-95');
+      }
+
+      // 3. Trigger Cover Card Opening Motion (Lift & gentle settle)
+      if (coverCard) {
+        coverCard.classList.remove('animate-gentle-float');
+        coverCard.classList.add('cover-opening-motion');
+      }
+
+      // 4. Smoothly scroll into details section on the same background
+      setTimeout(() => {
+        details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 700);
+
+      // 5. Restore floating animation and button readiness after transition
+      setTimeout(() => {
+        if (coverCard) {
+          coverCard.classList.remove('cover-opening-motion');
+          if (!coverCard.classList.contains('animate-gentle-float')) {
+            coverCard.classList.add('animate-gentle-float');
+          }
+        }
+        if (bukaContainer) {
+          bukaContainer.classList.remove('scale-95', 'opacity-0', 'pointer-events-none');
+        }
+        isOpening = false;
+      }, 1250);
+    }
+
+    // Replay Envelope Function: Scrolls smoothly back to top and resets cover
+    function replayEnvelope() {
+      const coverCard = document.getElementById('coverCardWrapper');
+      const bukaContainer = document.getElementById('bukaBtnContainer');
+
+      // Smooth scroll back to landing view
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      setTimeout(() => {
+        if (coverCard) {
+          coverCard.classList.remove('cover-opening-motion');
+          if (!coverCard.classList.contains('animate-gentle-float')) {
+            coverCard.classList.add('animate-gentle-float');
+          }
+          coverCard.style.opacity = '1';
+        }
+        if (bukaContainer) {
+          bukaContainer.classList.remove('opacity-0', 'scale-90', 'scale-95', 'pointer-events-none');
+        }
+        isOpening = false;
+      }, 400);
+    }
+
+    // Scroll listener: Ensure welcoming asset and button on first page are ALWAYS visible when scrolling back up
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY || window.pageYOffset;
+      if (scrollPos < 180) {
+        const coverCard = document.getElementById('coverCardWrapper');
+        const bukaContainer = document.getElementById('bukaBtnContainer');
+        if (coverCard) {
+          coverCard.classList.remove('cover-opening-motion');
+          if (!coverCard.classList.contains('animate-gentle-float')) {
+            coverCard.classList.add('animate-gentle-float');
+          }
+          coverCard.style.opacity = '1';
+        }
+        if (bukaContainer) {
+          bukaContainer.classList.remove('opacity-0', 'scale-90', 'scale-95', 'pointer-events-none');
+        }
+      }
+    }, { passive: true });
+
+    // Play Wedding Background Song (Audio file with smooth fallback)
+    function playWeddingMusic() {
+      if (bgAudio) {
+        bgAudio.volume = 0.8;
+        const playPromise = bgAudio.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            isMusicPlaying = true;
+            updateMusicIcons(true);
+          }).catch(err => {
+            console.warn("Audio element play prevented, fallback to synth:", err);
+            startWeddingMelody();
+          });
+          return;
+        }
+      }
+      startWeddingMelody();
+    }
+
+    // Web Audio Synthesizer fallback if audio file cannot be decoded
+    function startWeddingMelody() {
+      if (isMusicPlaying) return;
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        audioCtx = new AudioContext();
+        isMusicPlaying = true;
+        updateMusicIcons(true);
+
+        const notes = [
+          261.63, 329.63, 392.00, 523.25, // C E G C
+          220.00, 261.63, 329.63, 440.00, // A C E A
+          174.61, 220.00, 261.63, 349.23, // F A C F
+          196.00, 246.94, 293.66, 392.00  // G B D G
+        ];
+
+        let noteIdx = 0;
+        musicInterval = setInterval(() => {
+          if (!isMusicPlaying || !audioCtx) return;
+          playSoftTone(notes[noteIdx % notes.length]);
+          noteIdx++;
+        }, 550);
+
+      } catch (e) {
+        console.warn("Audio autoplay limited:", e);
+      }
+    }
+
+    function playSoftTone(freq) {
+      if (!audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+      gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.05, audioCtx.currentTime + 0.12);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.25);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 1.3);
+    }
+
+    function toggleMusic() {
+      if (isMusicPlaying) {
+        if (bgAudio && !bgAudio.paused) {
+          bgAudio.pause();
+        }
+        if (musicInterval) clearInterval(musicInterval);
+        if (audioCtx) audioCtx.suspend();
+        isMusicPlaying = false;
+        updateMusicIcons(false);
+      } else {
+        if (bgAudio) {
+          bgAudio.play().then(() => {
+            isMusicPlaying = true;
+            updateMusicIcons(true);
+          }).catch(() => {
+            startWeddingMelody();
+          });
+        } else {
+          startWeddingMelody();
+        }
+      }
+    }
+
+    function updateMusicIcons(playing) {
+      document.getElementById('musicIconOn').classList.toggle('hidden', !playing);
+      document.getElementById('musicIconOff').classList.toggle('hidden', playing);
+    }
+
+    // Countdown Timer logic
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetWeddingDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('days').innerText = "00";
+        document.getElementById('hours').innerText = "00";
+        document.getElementById('minutes').innerText = "00";
+        document.getElementById('seconds').innerText = "00";
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerText = String(d).padStart(2, '0');
+      document.getElementById('hours').innerText = String(h).padStart(2, '0');
+      document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+      document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Floating Petals & Leaves Canvas Animation
+    const canvas = document.getElementById('petals-canvas');
+    const ctx = canvas.getContext('2d');
+    let petals = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Petal {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = -20;
+        this.size = Math.random() * 8 + 5;
+        this.speedX = Math.random() * 1.4 - 0.7;
+        this.speedY = Math.random() * 1.1 + 0.7;
+        this.rotation = Math.random() * 360;
+        this.rotationSpeed = Math.random() * 2 - 1;
+        this.opacity = Math.random() * 0.45 + 0.25;
+        const palette = [
+          'rgba(196, 212, 188, ',  // sage green leaf
+          'rgba(242, 235, 220, ',  // ivory lace petal
+          'rgba(235, 204, 195, ',  // soft blush petal
+          'rgba(178, 198, 172, '   // olive meadow leaf
+        ];
+        this.color = palette[Math.floor(Math.random() * palette.length)];
+      }
+      update() {
+        this.x += this.speedX + Math.sin(this.y / 35) * 0.6;
+        this.y += this.speedY;
+        this.rotation += this.rotationSpeed;
+        if (this.y > canvas.height + 20) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate((this.rotation * Math.PI) / 180);
+        ctx.fillStyle = this.color + this.opacity + ')';
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(-this.size, -this.size / 2, -this.size, this.size / 2, 0, this.size);
+        ctx.bezierCurveTo(this.size, this.size / 2, this.size, -this.size / 2, 0, 0);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < 22; i++) {
+      petals.push(new Petal());
+    }
+
+    function animatePetals() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      petals.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animatePetals);
+    }
+    animatePetals();
+
+    // Copy Address Handler
+    function copyAddress() {
+      const addr = document.getElementById('venueAddress').innerText;
+      navigator.clipboard.writeText(addr).then(() => {
+        const lbl = document.getElementById('copyAddrLabel');
+        lbl.innerText = "Tersalin!";
+        setTimeout(() => lbl.innerText = "Salin Alamat", 2500);
+      });
+    }
+
+    // Copy Bank Account Handler
+    function copyBankAccount() {
+      const acc = document.getElementById('bankAccDisplay').innerText.replace(/\s+/g, '');
+      navigator.clipboard.writeText(acc).then(() => {
+        const lbl = document.getElementById('copyBankLabel');
+        lbl.innerText = "Nombor Akaun Tersalin!";
+        setTimeout(() => lbl.innerText = "Salin Nombor Akaun", 2500);
+      });
+    }
+
+    // ========================================================
+    // PERSISTENT RSVP & WISHES MANAGEMENT (localStorage & Google Sheets)
+    // ========================================================
+    const STORAGE_KEY_RSVP = 'wedding_rsvp_wishes_hawa_najmuddin';
+    const STORAGE_KEY_GSHEET = 'wedding_gsheet_url_hawa_najmuddin';
+    let googleSheetsUrl = localStorage.getItem(STORAGE_KEY_GSHEET) || '';
+
+    const INITIAL_SAMPLE_WISHES = [
+      {
+        name: "Farhan & Keluarga",
+        status: "Hadir",
+        pax: "2",
+        wishes: "Tahniah Hawa & Najmuddin! Semoga sentiasa dilimpahi sakinah, mawaddah & rahmah.",
+        date: "17 Okt"
+      },
+      {
+        name: "Afiqah & Rakan",
+        status: "Hadir",
+        pax: "2",
+        wishes: "Selamat menempuh alam perkahwinan Hawa & Najmuddin! Jumpa di Balik Pulau.",
+        date: "17 Okt"
+      }
+    ];
+
+    function getStoredWishes() {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY_RSVP);
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed)) return parsed;
+        }
+      } catch (err) {
+        console.warn("Ralat membaca localStorage:", err);
+      }
+      return [...INITIAL_SAMPLE_WISHES];
+    }
+
+    function saveStoredWishes(wishes) {
+      try {
+        localStorage.setItem(STORAGE_KEY_RSVP, JSON.stringify(wishes));
+      } catch (err) {
+        console.error("Ralat menyimpan ke localStorage:", err);
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function renderWishesList() {
+      const wishes = getStoredWishes();
+      const listEl = document.getElementById('wishesList');
+      const countEl = document.getElementById('wishesCount');
+      if (!listEl) return;
+
+      listEl.innerHTML = '';
+      if (countEl) countEl.innerText = wishes.length;
+
+      if (wishes.length === 0) {
+        listEl.innerHTML = `
+          <div class="p-4 text-center text-xs text-[#44634a] italic bg-white/60 rounded-xl border border-stone-200">
+            Belum ada ucapan. Jadilah tetamu pertama menitipkan doa!
+          </div>
+        `;
+        return;
+      }
+
+      wishes.forEach(item => {
+        const isHadir = item.status === 'Hadir';
+        const wishCard = document.createElement('div');
+        wishCard.className = 'bg-white/90 p-3 rounded-xl border border-[#c4a76c]/30 shadow-xs text-xs animate-fade-in transition';
+        wishCard.innerHTML = `
+          <div class="flex justify-between items-center mb-1">
+            <span class="font-bold text-[#1a2e1d]">${escapeHtml(item.name)}</span>
+            <span class="text-[9px] ${isHadir ? 'text-emerald-700 bg-emerald-50' : 'text-rose-700 bg-rose-50'} font-semibold px-1.5 py-0.5 rounded">
+              ${escapeHtml(item.status)} ${isHadir && item.pax ? '(' + escapeHtml(item.pax) + ' pax)' : ''}
+            </span>
+          </div>
+          ${item.wishes ? `<p class="text-[#44634a] text-[11px] leading-relaxed">${escapeHtml(item.wishes)}</p>` : ''}
+          ${item.date ? `<div class="text-[9px] text-stone-400 text-right mt-1">${escapeHtml(item.date)}</div>` : ''}
+        `;
+        listEl.appendChild(wishCard);
+      });
+    }
+
+    // RSVP Submit Handler with persistent storage
+    function handleRsvpSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('rsvpName').value.trim();
+      const status = document.querySelector('input[name="rsvpStatus"]:checked').value;
+      const pax = document.getElementById('rsvpPax').value;
+      const wishes = document.getElementById('rsvpWishes').value.trim();
+
+      if (!name) {
+        alert("Sila masukkan nama penuh anda.");
+        return;
+      }
+
+      const today = new Date();
+      const dateStr = today.toLocaleDateString('ms-MY', { day: 'numeric', month: 'short' });
+
+      const newEntry = {
+        name: name,
+        status: status,
+        pax: status === 'Hadir' ? pax : '0',
+        wishes: wishes,
+        date: dateStr,
+        timestamp: today.toISOString()
+      };
+
+      const currentWishes = getStoredWishes();
+      currentWishes.unshift(newEntry);
+      saveStoredWishes(currentWishes);
+      renderWishesList();
+
+      // Send to Google Sheets Webhook if configured
+      if (googleSheetsUrl && googleSheetsUrl.trim().startsWith('http')) {
+        try {
+          fetch(googleSheetsUrl.trim(), {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newEntry)
+          }).catch(err => console.warn("Google Sheet sync notice:", err));
+        } catch (err) {
+          console.warn("Fetch error:", err);
+        }
+      }
+
+      document.getElementById('rsvpForm').reset();
+      alert("Terima kasih! Pengesahan kehadiran dan ucapan anda telah berjaya disimpan.");
+    }
+
+    // Export RSVP to CSV
+    function exportRsvpCsv() {
+      const wishes = getStoredWishes();
+      let csv = "\uFEFFNama,Status Kehadiran,Bilangan Pax,Ucapan & Doa,Tarikh\r\n";
+      wishes.forEach(row => {
+        const cleanName = `"${(row.name || '').replace(/"/g, '""')}"`;
+        const cleanStatus = `"${(row.status || '').replace(/"/g, '""')}"`;
+        const cleanPax = `"${(row.pax || '0').replace(/"/g, '""')}"`;
+        const cleanWishes = `"${(row.wishes || '').replace(/"/g, '""')}"`;
+        const cleanDate = `"${(row.date || '').replace(/"/g, '""')}"`;
+        csv += `${cleanName},${cleanStatus},${cleanPax},${cleanWishes},${cleanDate}\r\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", "Senarai_RSVP_Hawa_Najmuddin.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(url), 400);
+    }
+
+    // Reset / Clear RSVP Data
+    function resetRsvpData() {
+      if (confirm("Adakah anda pasti ingin mengosongkan semua rekod RSVP dalam pelayar ini?")) {
+        localStorage.removeItem(STORAGE_KEY_RSVP);
+        renderWishesList();
+        alert("Semua data RSVP telah dikosongkan.");
+      }
+    }
+
+    // Render immediately
+    renderWishesList();
+
+    // Google Calendar Event Generator
+    function addToGoogleCalendar() {
+      const bride = document.getElementById('brideFullName')?.innerText?.trim() || "Hawa";
+      const groom = document.getElementById('groomFullName')?.innerText?.trim() || "Najmuddin";
+      const venue = document.getElementById('venueName')?.innerText?.trim() || "Balik Pulau";
+      const address = document.getElementById('venueAddress')?.innerText?.trim() || "Balik Pulau, Pulau Pinang";
+      const title = encodeURIComponent(`Walimatul Urus ${bride} & ${groom}`);
+      const details = encodeURIComponent(`Majlis Perkahwinan ${bride} & ${groom}\nLokasi: ${venue}, ${address}\nWaktu: 11:00 Pagi - 4:00 Petang`);
+      const location = encodeURIComponent(`${venue}, ${address}`);
+      const dates = "20261226T030000Z/20261226T080000Z";
+      window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${dates}`, '_blank');
+    }
+
+    // Apple Calendar (.ics) Generator & Downloader
+    function addToAppleCalendar() {
+      const bride = document.getElementById('brideFullName')?.innerText?.trim() || "Hawa";
+      const groom = document.getElementById('groomFullName')?.innerText?.trim() || "Najmuddin";
+      const venue = document.getElementById('venueName')?.innerText?.trim() || "Balik Pulau";
+      const address = document.getElementById('venueAddress')?.innerText?.trim() || "Balik Pulau, Pulau Pinang";
+      const title = `Walimatul Urus ${bride} & ${groom}`;
+      const desc = `Majlis Perkahwinan ${bride} & ${groom}\\nTarikh: Sabtu, 26 Disember 2026\\nWaktu: 11:00 Pagi - 4:00 Petang\\nLokasi: ${venue}, ${address}`;
+      const location = `${venue}, ${address}`;
+      const nowIso = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + "Z";
+
+      const icsLines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Walimatul Urus Hawa & Najmuddin//MY",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "BEGIN:VEVENT",
+        "UID:wedding-hawa-najmuddin-" + Date.now() + "@jemputan.me",
+        "DTSTAMP:" + nowIso,
+        "DTSTART:20261226T030000Z",
+        "DTEND:20261226T080000Z",
+        "SUMMARY:" + title,
+        "DESCRIPTION:" + desc,
+        "LOCATION:" + location,
+        "STATUS:CONFIRMED",
+        "BEGIN:VALARM",
+        "TRIGGER:-P1D",
+        "ACTION:DISPLAY",
+        "DESCRIPTION:Peringatan: " + title + " esok",
+        "END:VALARM",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ];
+
+      const icsString = icsLines.join("\r\n");
+      const blob = new Blob([icsString], { type: 'text/calendar;charset=utf-8' });
+      const blobUrl = URL.createObjectURL(blob);
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.href = blobUrl;
+      downloadAnchor.setAttribute('download', 'Walimatul_Urus_Hawa_Najmuddin.ics');
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      document.body.removeChild(downloadAnchor);
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 400);
+    }
+
+    // ========================================================
+    // GALLERY SLIDESHOW & LIGHTBOX INTERACTION
+    // ========================================================
+    const GALLERY_ITEMS = [
+      {
+        src: "assets/gallery/gallery-1.jpg",
+        fallback: "gallery-1.jpg",
+        title: "Kuntuman Kasih",
+        desc: "Di bawah restu dan limpahan rahmat Ilahi"
+      },
+      {
+        src: "assets/gallery/gallery-2.jpg",
+        fallback: "gallery-2.jpg",
+        title: "Cahaya Kebahagiaan",
+        desc: "Menatap masa depan bersama penuh sakinah & mawaddah"
+      },
+      {
+        src: "assets/gallery/gallery-3.jpg",
+        fallback: "gallery-3.jpg",
+        title: "Janji Hati",
+        desc: "Terjalin ikatan suci yang diiringi doa restu keluarga"
+      },
+      {
+        src: "assets/gallery/gallery-4.jpg",
+        fallback: "gallery-4.jpg",
+        title: "Langkah Bersama",
+        desc: "Melangkah berdua menuju jannah bersama cinta abadi"
+      },
+      {
+        src: "assets/gallery/gallery-5.jpg",
+        fallback: "gallery-5.jpg",
+        title: "Kedamaian Hati",
+        desc: "Tenang menyusuri takdir indah yang telah tertulis"
+      },
+      {
+        src: "assets/gallery/gallery-6.jpg",
+        fallback: "gallery-6.jpg",
+        title: "Senyuman Kasih",
+        desc: "Pandangan tulus mengikat dua jiwa menjadi satu"
+      }
+    ];
+
+    let currentGalleryIdx = 0;
+
+    function setGallerySlide(idx) {
+      if (idx < 0) idx = GALLERY_ITEMS.length - 1;
+      if (idx >= GALLERY_ITEMS.length) idx = 0;
+      currentGalleryIdx = idx;
+
+      const item = GALLERY_ITEMS[idx];
+      const imgEl = document.getElementById('galleryMainImg');
+      const titleEl = document.getElementById('galleryCaptionTitle');
+      const descEl = document.getElementById('galleryCaptionDesc');
+
+      if (imgEl) {
+        imgEl.style.opacity = '0.35';
+        imgEl.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          imgEl.src = item.src;
+          imgEl.onerror = () => { imgEl.src = item.fallback; };
+          imgEl.style.opacity = '1';
+          imgEl.style.transform = 'scale(1)';
+        }, 180);
+      }
+
+      if (titleEl) titleEl.innerText = item.title;
+      if (descEl) descEl.innerText = item.desc;
+
+      // Update thumbnail active borders
+      const thumbs = document.querySelectorAll('.gallery-thumb-btn');
+      thumbs.forEach((btn, i) => {
+        if (i === idx) {
+          btn.classList.add('border-[#1e3221]', 'scale-105', 'opacity-100');
+          btn.classList.remove('border-transparent', 'opacity-70');
+        } else {
+          btn.classList.remove('border-[#1e3221]', 'scale-105', 'opacity-100');
+          btn.classList.add('border-transparent', 'opacity-70');
+        }
+      });
+    }
+
+    function nextGallerySlide() {
+      setGallerySlide(currentGalleryIdx + 1);
+    }
+
+    function prevGallerySlide() {
+      setGallerySlide(currentGalleryIdx - 1);
+    }
+
+    function openCurrentInLightbox() {
+      openLightbox(currentGalleryIdx);
+    }
+
+    function openLightbox(idx) {
+      const item = GALLERY_ITEMS[idx] || GALLERY_ITEMS[0];
+      currentGalleryIdx = idx;
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      const caption = document.getElementById('lightboxCaption');
+
+      if (!modal || !img) return;
+      img.src = item.src;
+      img.onerror = () => { img.src = item.fallback; };
+      if (caption) caption.innerText = item.title + " — " + item.desc;
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      if (modal) modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Keyboard navigation for Lightbox
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightboxModal');
+      if (!modal || modal.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') {
+        const nextIdx = (currentGalleryIdx + 1) % GALLERY_ITEMS.length;
+        openLightbox(nextIdx);
+        setGallerySlide(nextIdx);
+      }
+      if (e.key === 'ArrowLeft') {
+        const prevIdx = (currentGalleryIdx - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+        openLightbox(prevIdx);
+        setGallerySlide(prevIdx);
+      }
+    });
+
+    // Editor Modal Controls
+    function openEditorModal() {
+      document.getElementById('editorModal').classList.remove('hidden');
+      const gsheetInput = document.getElementById('editGoogleSheetsUrl');
+      if (gsheetInput) gsheetInput.value = googleSheetsUrl || '';
+    }
+    function closeEditorModal() {
+      document.getElementById('editorModal').classList.add('hidden');
+    }
+
+    function saveEditorData() {
+      const groom = document.getElementById('editGroom').value;
+      const bride = document.getElementById('editBride').value;
+      const father = document.getElementById('editFather').value;
+      const mother = document.getElementById('editMother').value;
+      const dateVal = document.getElementById('editDate').value;
+      const dateText = document.getElementById('editDateText').value;
+      const venue = document.getElementById('editVenueName').value;
+      const address = document.getElementById('editVenueAddress').value;
+
+      const cName1 = document.getElementById('editContactName1').value;
+      const cPhone1 = document.getElementById('editContactPhone1').value;
+      const cName2 = document.getElementById('editContactName2').value;
+      const cPhone2 = document.getElementById('editContactPhone2').value;
+
+      const bank = document.getElementById('editBankName').value;
+      const bankAcc = document.getElementById('editBankAcc').value;
+      const bankOwner = document.getElementById('editBankOwner').value;
+
+      // Update Card DOM
+      document.getElementById('brideFullName').innerText = bride;
+      document.getElementById('groomFullName').innerText = groom;
+      document.getElementById('parentFather').innerText = father;
+      document.getElementById('parentMother').innerText = mother;
+      document.getElementById('weddingDateDisplay').innerText = dateText;
+      document.getElementById('venueName').innerText = venue;
+      document.getElementById('venueAddress').innerText = address;
+
+      // Update Navigation links
+      const encodedVenue = encodeURIComponent(venue + ", " + address);
+      document.getElementById('btnWaze').href = `https://waze.com/ul?q=${encodedVenue}`;
+      document.getElementById('btnGoogleMaps').href = `https://maps.google.com/?q=${encodedVenue}`;
+
+      // Update Contacts
+      document.getElementById('contactName1').innerText = cName1;
+      document.getElementById('contactPhoneDisplay1').innerText = cPhone1;
+      document.getElementById('contactWa1').href = `https://wa.me/${cPhone1}?text=Assalamualaikum`;
+
+      document.getElementById('contactName2').innerText = cName2;
+      document.getElementById('contactPhoneDisplay2').innerText = cPhone2;
+      document.getElementById('contactWa2').href = `https://wa.me/${cPhone2}?text=Assalamualaikum`;
+
+      // Update Bank
+      document.getElementById('bankNameDisplay').innerText = bank;
+      document.getElementById('bankAccDisplay').innerText = bankAcc;
+      document.getElementById('bankOwnerDisplay').innerText = bankOwner;
+
+      // Update Doa Pengantin if customized
+      const doaText = document.getElementById('editDoaText')?.value;
+      if (doaText && document.getElementById('doaTextDisplay')) {
+        document.getElementById('doaTextDisplay').innerText = doaText;
+      }
+
+      // Update Google Sheets Webhook URL
+      const gsheetVal = document.getElementById('editGoogleSheetsUrl')?.value?.trim() || '';
+      googleSheetsUrl = gsheetVal;
+      localStorage.setItem(STORAGE_KEY_GSHEET, googleSheetsUrl);
+
+      // Update Countdown Date if valid
+      if (dateVal) {
+        targetWeddingDate = new Date(dateVal + "T11:00:00").getTime();
+        updateCountdown();
+      }
+
+      closeEditorModal();
+      alert("Maklumat kad kahwin berjaya dikemas kini!");
+    }
+  </script>
+</body>
+</html>
