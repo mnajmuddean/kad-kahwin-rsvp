@@ -696,7 +696,7 @@
       <section class="glass-card rounded-3xl p-6">
         <div class="text-center mb-4">
           <h3 class="font-serif-title text-xs tracking-[0.2em] uppercase text-[#2b4530] font-bold mb-1">
-            Hubungi Waris
+            Hubungi Ahli Keluarga
           </h3>
           <p class="text-xs text-[#44634a]">Sebarang pertanyaan boleh terus hubungi pihak keluarga</p>
         </div>
@@ -740,67 +740,6 @@
             <a id="contactWa2" href="https://wa.link/8yyynw" target="_blank" class="bg-emerald-600 text-white p-2 rounded-lg hover:bg-emerald-700 transition">
               <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
             </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- CARD 8: SALAM KAUT DIGITAL -->
-      <section class="glass-card rounded-3xl p-6 text-center">
-        <h3 class="font-serif-title text-xs tracking-[0.2em] uppercase text-[#2b4530] font-bold mb-1">
-          Salam Kaut / Hadiah Digital
-        </h3>
-        <p class="text-xs text-[#44634a] max-w-xs mx-auto mb-4">
-          Bagi tetamu yang berhasrat menitipkan tanda ingatan dan doa restu secara maya
-        </p>
-
-        <div class="bg-white/95 p-5 rounded-2xl border border-[#c4a76c]/35 shadow-sm max-w-xs mx-auto">
-          <!-- Bank Badge -->
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fde8e8] border border-[#dc2626]/25 text-[#991b1b] text-[11px] font-bold mb-2.5 shadow-xs">
-            <span class="w-2 h-2 rounded-full bg-[#dc2626]"></span>
-            <span id="bankNameDisplay">CIMB BANK</span>
-          </div>
-
-          <p class="text-[11px] text-[#44634a] mb-0.5">Nombor Akaun:</p>
-          <p id="bankAccDisplay" class="font-mono text-lg font-bold text-[#1a2e1d] tracking-wider mb-0.5">7636 9161 29</p>
-          <p id="bankOwnerDisplay" class="text-xs font-semibold text-[#44634a] mb-3">Nur Hawa Izzatie</p>
-
-          <button onclick="copyBankAccount()" class="w-full py-2.5 bg-[#1e3221] hover:bg-[#121f14] text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition active:scale-95 shadow-sm mb-3">
-            <svg class="w-3.5 h-3.5 text-[#c4a76c]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
-            <span id="copyBankLabel">Salin Nombor Akaun</span>
-          </button>
-
-          <!-- DuitNow QR Section -->
-          <div class="pt-3.5 border-t border-[#c4a76c]/25">
-            <div class="flex items-center justify-center gap-1.5 text-[11px] font-bold text-[#991b1b] uppercase tracking-wider mb-2">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#dc2626]"></span>
-              <span>DuitNow QR</span>
-            </div>
-
-            <!-- QR Container with preview and tap hint -->
-            <div onclick="openQrModal()" class="group relative cursor-pointer inline-block bg-white p-2.5 rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-md transition-all duration-300" title="Sentuh untuk besarkan QR kod">
-              <img src="assets/qr-duitnow.jpg" onerror="this.src='qr-duitnow.jpg'" alt="DuitNow QR CIMB - Nur Hawa Izzatie" class="w-44 h-auto mx-auto rounded-xl transition-transform duration-300 group-hover:scale-[1.02]">
-              <div class="absolute inset-0 bg-[#1e3221]/15 rounded-2xl opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                <span class="bg-[#1e3221]/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full shadow backdrop-blur-xs flex items-center gap-1">
-                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
-                  Sentuh Untuk Zoom
-                </span>
-              </div>
-            </div>
-
-            <p class="text-[10px] text-stone-500 mt-2">
-              Sentuh kod QR untuk paparan penuh atau simpan
-            </p>
-
-            <div class="mt-2.5 flex items-center justify-center gap-2">
-              <button onclick="openQrModal()" class="flex-1 py-1.5 inline-flex items-center justify-center gap-1.5 text-[11px] font-semibold text-[#1e3221] bg-[#edf4e7] hover:bg-[#dfead6] rounded-lg border border-[#2b4530]/20 transition active:scale-95 shadow-2xs">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                <span>Besarkan</span>
-              </button>
-              <a href="assets/qr-duitnow.jpg" download="DuitNow-CIMB-NurHawaIzzatie.jpg" class="flex-1 py-1.5 inline-flex items-center justify-center gap-1.5 text-[11px] font-semibold text-[#1e3221] bg-[#edf4e7] hover:bg-[#dfead6] rounded-lg border border-[#2b4530]/20 transition active:scale-95 shadow-2xs text-center">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                <span>Simpan QR</span>
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -910,25 +849,7 @@
         </div>
 
         <div class="border-b pb-3">
-          <h4 class="font-bold text-[#1e3221] mb-2">6. Salam Kaut / Bank</h4>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <div>
-              <label class="block text-[11px] text-stone-600 mb-1">Nama Bank</label>
-              <input type="text" id="editBankName" class="w-full p-1.5 border rounded-lg" value="CIMB BANK">
-            </div>
-            <div>
-              <label class="block text-[11px] text-stone-600 mb-1">Nombor Akaun</label>
-              <input type="text" id="editBankAcc" class="w-full p-1.5 border rounded-lg" value="7636916129">
-            </div>
-            <div>
-              <label class="block text-[11px] text-stone-600 mb-1">Pemegang Akaun</label>
-              <input type="text" id="editBankOwner" class="w-full p-1.5 border rounded-lg" value="Nur Hawa Izzatie">
-            </div>
-          </div>
-        </div>
-
-        <div class="border-b pb-3">
-          <h4 class="font-bold text-[#1e3221] mb-2">7. Doa Buat Mempelai</h4>
+          <h4 class="font-bold text-[#1e3221] mb-2">6. Doa Buat Mempelai</h4>
           <div>
             <label class="block text-[11px] text-stone-600 mb-1">Untaian Doa Pengantin</label>
             <textarea id="editDoaText" rows="3" class="w-full p-2 border rounded-lg text-xs leading-relaxed">"Ya Allah, berkatilah ikatan perkahwinan anakanda kami ini. Kurniakanlah sakinah, mawaddah dan warahmah dalam bahtera rumah tangga mereka. Tiupkanlah keharmonian dan ketenteraman, limpahkanlah rezeki yang halal, serta anugerahkanlah zuriat yang soleh dan solehah yang berbakti kepada agama dan keluarga. Kekalkanlah kasih sayang mereka hingga ke jannah."</textarea>
@@ -936,7 +857,7 @@
         </div>
 
         <div>
-          <h4 class="font-bold text-[#1e3221] mb-2">8. Pengurusan Data RSVP & Google Sheets</h4>
+          <h4 class="font-bold text-[#1e3221] mb-2">7. Pengurusan Data RSVP & Google Sheets</h4>
           <p class="text-[11px] text-stone-500 mb-2">Semua ucapan disimpan dalam pelayar ini. Anda juga boleh menyambungkannya ke Google Sheets secara automatik.</p>
           <div class="flex items-center gap-2 mb-3">
             <button type="button" onclick="exportRsvpCsv()" class="px-3 py-1.5 bg-[#edf4e7] border border-[#2b4530]/20 text-[#1e3221] text-xs font-semibold rounded-lg hover:bg-[#dfeacf]">
@@ -977,38 +898,6 @@
         <img id="lightboxImg" src="" alt="Paparan Penuh Potret" class="w-full max-h-[75vh] object-contain rounded-2xl">
       </div>
       <p id="lightboxCaption" class="mt-3 text-center text-white/95 text-xs sm:text-sm font-serif-classic italic tracking-wide drop-shadow-md px-4"></p>
-    </div>
-  </div>
-
-  <!-- QR ZOOM MODAL -->
-  <div id="qrModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300" onclick="closeQrModal(event)">
-    <div class="relative bg-white rounded-3xl max-w-xs sm:max-w-sm w-full p-5 text-center shadow-2xl border border-[#c4a76c]/40 animate-fade-in" onclick="event.stopPropagation()">
-      <button id="closeQrBtn" onclick="closeQrModal()" title="Tutup Paparan" class="absolute top-3.5 right-3.5 text-stone-500 hover:text-stone-800 text-xl font-bold bg-stone-100 hover:bg-stone-200 w-8 h-8 rounded-full flex items-center justify-center transition shadow-sm">
-        &times;
-      </button>
-
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fde8e8] border border-[#dc2626]/25 text-[#991b1b] text-[10px] font-bold uppercase tracking-wider mb-2 shadow-xs">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#dc2626]"></span>
-        <span>CIMB DuitNow QR</span>
-      </div>
-
-      <h3 class="font-serif-title text-base text-[#1a2e1d] font-bold">Nur Hawa Izzatie</h3>
-      <p class="font-mono text-xs text-[#44634a] font-bold tracking-wider mb-3">CIMB &bull; 7636 9161 29</p>
-
-      <div class="bg-stone-50 p-2 rounded-2xl border border-stone-200 mb-4 shadow-inner">
-        <img src="assets/qr-duitnow.jpg" onerror="this.src='qr-duitnow.jpg'" alt="DuitNow QR Kod Penuh" class="w-full max-h-[60vh] object-contain rounded-xl mx-auto">
-      </div>
-
-      <div class="flex items-center gap-2">
-        <button onclick="copyBankAccount()" class="flex-1 py-2.5 bg-[#1e3221] hover:bg-[#121f14] text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition active:scale-95 shadow-sm">
-          <svg class="w-3.5 h-3.5 text-[#c4a76c]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
-          <span id="copyBankModalLabel">Salin No. Akaun</span>
-        </button>
-        <a href="assets/qr-duitnow.jpg" download="DuitNow-CIMB-NurHawaIzzatie.jpg" class="flex-1 py-2.5 bg-[#edf4e7] hover:bg-[#dfead6] text-[#1e3221] border border-[#2b4530]/20 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition text-center active:scale-95">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-          <span>Simpan QR</span>
-        </a>
-      </div>
     </div>
   </div>
 
@@ -1099,11 +988,9 @@
     function isModalOpen() {
       const editorModal = document.getElementById('editorModal');
       const lightboxModal = document.getElementById('lightboxModal');
-      const qrModal = document.getElementById('qrModal');
       const rsvpModal = document.getElementById('rsvpSuccessModal');
       return (editorModal && !editorModal.classList.contains('hidden')) ||
              (lightboxModal && !lightboxModal.classList.contains('hidden')) ||
-             (qrModal && !qrModal.classList.contains('hidden')) ||
              (rsvpModal && !rsvpModal.classList.contains('hidden'));
     }
 
@@ -1466,21 +1353,6 @@
       });
     }
 
-    // Copy Bank Account Handler
-    function copyBankAccount() {
-      const acc = document.getElementById('bankAccDisplay').innerText.replace(/\s+/g, '');
-      navigator.clipboard.writeText(acc).then(() => {
-        const lbl = document.getElementById('copyBankLabel');
-        if (lbl) lbl.innerText = "Nombor Akaun Tersalin!";
-        const modalLbl = document.getElementById('copyBankModalLabel');
-        if (modalLbl) modalLbl.innerText = "Tersalin!";
-        setTimeout(() => {
-          if (lbl) lbl.innerText = "Salin Nombor Akaun";
-          if (modalLbl) modalLbl.innerText = "Salin No. Akaun";
-        }, 2500);
-      });
-    }
-
     // ========================================================
     // PERSISTENT RSVP & WISHES MANAGEMENT (localStorage & Google Sheets)
     // ========================================================
@@ -1838,26 +1710,6 @@
       }
     }
 
-    // QR Modal Controls
-    function openQrModal() {
-      const modal = document.getElementById('qrModal');
-      if (modal) {
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeQrModal(e) {
-      if (e && e.target && e.target.id !== 'qrModal' && !e.target.closest('#closeQrBtn')) return;
-      const modal = document.getElementById('qrModal');
-      if (modal) {
-        modal.classList.add('hidden');
-        if (!document.body.classList.contains('card-locked')) {
-          document.body.style.overflow = '';
-        }
-      }
-    }
-
     // RSVP Success Celebration Modal Controls
     function showRsvpSuccessModal(entry) {
       const modal = document.getElementById('rsvpSuccessModal');
@@ -1951,11 +1803,10 @@
       requestAnimationFrame(animate);
     }
 
-    // Keyboard navigation for Modals (Lightbox, QR & RSVP Success)
+    // Keyboard navigation for Modals (Lightbox & RSVP Success)
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeLightbox();
-        closeQrModal();
         closeRsvpSuccessModal();
       }
       const modal = document.getElementById('lightboxModal');
@@ -1997,10 +1848,6 @@
       const cName2 = document.getElementById('editContactName2').value;
       const cPhone2 = document.getElementById('editContactPhone2').value;
 
-      const bank = document.getElementById('editBankName').value;
-      const bankAcc = document.getElementById('editBankAcc').value;
-      const bankOwner = document.getElementById('editBankOwner').value;
-
       // Update Card DOM
       document.getElementById('brideFullName').innerText = bride;
       document.getElementById('groomFullName').innerText = groom;
@@ -2023,11 +1870,6 @@
       document.getElementById('contactName2').innerText = cName2;
       document.getElementById('contactPhoneDisplay2').innerText = cPhone2;
       document.getElementById('contactWa2').href = `https://wa.me/${cPhone2}?text=Assalamualaikum`;
-
-      // Update Bank
-      document.getElementById('bankNameDisplay').innerText = bank;
-      document.getElementById('bankAccDisplay').innerText = bankAcc;
-      document.getElementById('bankOwnerDisplay').innerText = bankOwner;
 
       // Update Doa Pengantin if customized
       const doaText = document.getElementById('editDoaText')?.value;
