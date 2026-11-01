@@ -42,9 +42,14 @@
       font-family: 'Pinyon Script', 'Great Vibes', 'Beautique', cursive;
     }
 
-    /* Single-line responsive couple name heading - strictly centered */
+    /* Names container with container query for responsive sizing strictly bound to card width */
+    .names-container-card {
+      container-type: inline-size;
+    }
+
+    /* Single-line responsive couple name heading - strictly bounded inside the card */
     .couple-full-name {
-      font-size: clamp(1.15rem, 5.2vw, 2.5rem);
+      font-size: clamp(1.22rem, 7.2cqi, 1.68rem);
       line-height: 1.3;
       white-space: nowrap;
       text-align: center;
@@ -52,9 +57,9 @@
       width: 100%;
       margin: 0 auto;
     }
-    /* Proportionally scaled groom name for generous breathing room */
+    /* Proportionally scaled groom name - strictly stays inside the white box on all screens */
     .couple-groom-name {
-      font-size: clamp(1.02rem, 4.35vw, 2.15rem);
+      font-size: clamp(1.12rem, 6.4cqi, 1.52rem);
     }
     .couple-full-name span, .couple-groom-name span {
       display: inline-block;
@@ -362,7 +367,7 @@
     <main id="detailsSection" class="w-full flex flex-col px-4 py-8 space-y-6 relative z-10 pb-20">
 
       <!-- CARD 1: HERO / BANNER -->
-      <section class="glass-card rounded-3xl p-6 sm:p-7 text-center">
+      <section class="glass-card rounded-3xl p-4 sm:p-7 text-center">
         <!-- Bismillah Calligraphy -->
         <div class="font-arabic text-2xl text-[#1a2e1d] mb-2.5 tracking-wide">
           بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
@@ -384,7 +389,7 @@
         </p>
 
         <!-- Bride & Groom Highlight: Pinyon Script Matching Front Lace Card -->
-        <div class="py-6 px-3 sm:px-6 my-2 border-y border-[#2b4530]/15 bg-white/45 rounded-2xl flex flex-col items-center justify-center text-center">
+        <div class="names-container-card py-6 px-2 sm:px-6 my-2 border-y border-[#2b4530]/15 bg-white/45 rounded-2xl flex flex-col items-center justify-center text-center">
           <h2 id="brideFullName" class="font-script couple-full-name text-[#1a2e1d] font-normal leading-tight w-full text-center">
             <span>Nur Hawa Izzatie</span>
           </h2>
@@ -419,7 +424,7 @@
           Sabtu, 26 Disember 2026
         </p>
         <p class="font-serif-classic text-sm text-[#44634a] mb-4">
-          12:00 Tengah Hari — 4:00 Petang
+          11:00 Pagi — 4:00 Petang
         </p>
 
         <!-- Countdown Boxes -->
@@ -1005,19 +1010,19 @@
     }
     window.scrollTo(0, 0);
 
-    // Auto-fit Couple Names so long names are 100% centered, never wrap or crop on any device
+    // Auto-fit Couple Names so long names are strictly kept inside the white box on all devices (iPad, Surface, Nest Hub, Mobile)
     function fitCoupleNames() {
       const groom = document.getElementById('groomFullName');
       const bride = document.getElementById('brideFullName');
       [bride, groom].forEach(h2 => {
         if (!h2) return;
-        h2.style.fontSize = ''; // reset to CSS clamp
+        h2.style.fontSize = ''; // reset to CSS container query clamp
         const span = h2.querySelector('span') || h2;
-        const container = h2.closest('.rounded-2xl') || h2.parentElement;
+        const container = h2.closest('.names-container-card') || h2.parentElement;
         if (!container) return;
-        const availableW = Math.max(160, container.clientWidth - 32);
+        const availableW = Math.max(160, container.clientWidth - 20);
         let size = parseFloat(window.getComputedStyle(h2).fontSize);
-        while (span.getBoundingClientRect().width > availableW && size > 12) {
+        while (span.getBoundingClientRect().width > availableW && size > 11) {
           size -= 0.5;
           h2.style.fontSize = size + 'px';
         }
@@ -1027,6 +1032,14 @@
     window.addEventListener('resize', fitCoupleNames);
     if ('fonts' in document) {
       document.fonts.ready.then(fitCoupleNames);
+    }
+    // ResizeObserver watches the card itself when device mode changes in DevTools (iPad, Surface, Nest Hub)
+    if (typeof ResizeObserver !== 'undefined') {
+      const nameObserver = new ResizeObserver(() => {
+        fitCoupleNames();
+      });
+      const targetCard = document.querySelector('.names-container-card');
+      if (targetCard) nameObserver.observe(targetCard);
     }
     setTimeout(fitCoupleNames, 150);
 
@@ -1587,7 +1600,7 @@
       const venue = document.getElementById('venueName')?.innerText?.trim() || "Balik Pulau";
       const address = document.getElementById('venueAddress')?.innerText?.trim() || "Balik Pulau, Pulau Pinang";
       const title = encodeURIComponent(`Walimatul Urus ${bride} & ${groom}`);
-      const details = encodeURIComponent(`Majlis Perkahwinan ${bride} & ${groom}\nLokasi: ${venue}, ${address}\nWaktu: 12:00 Tengah Hari - 4:00 Petang`);
+      const details = encodeURIComponent(`Majlis Perkahwinan ${bride} & ${groom}\nLokasi: ${venue}, ${address}\nWaktu: 11:00 Pagi - 4:00 Petang`);
       const location = encodeURIComponent(`${venue}, ${address}`);
       const dates = "20261226T030000Z/20261226T080000Z";
       window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${dates}`, '_blank');
@@ -1600,7 +1613,7 @@
       const venue = document.getElementById('venueName')?.innerText?.trim() || "Balik Pulau";
       const address = document.getElementById('venueAddress')?.innerText?.trim() || "Balik Pulau, Pulau Pinang";
       const title = `Walimatul Urus ${bride} & ${groom}`;
-      const desc = `Majlis Perkahwinan ${bride} & ${groom}\\nTarikh: Sabtu, 26 Disember 2026\\nWaktu: 12:00 Tengah Hari - 4:00 Petang\\nLokasi: ${venue}, ${address}`;
+      const desc = `Majlis Perkahwinan ${bride} & ${groom}\\nTarikh: Sabtu, 26 Disember 2026\\nWaktu: 11:00 Pagi - 4:00 Petang\\nLokasi: ${venue}, ${address}`;
       const location = `${venue}, ${address}`;
       const nowIso = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + "Z";
 
