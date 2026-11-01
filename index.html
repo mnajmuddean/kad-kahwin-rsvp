@@ -424,7 +424,7 @@
           Sabtu, 26 Disember 2026
         </p>
         <p class="font-serif-classic text-sm text-[#44634a] mb-4">
-          12:00 Tengah Hari — 4:00 Petang
+          12:00 Tengah Hari — 4:30 Petang
         </p>
 
         <!-- Countdown Boxes -->
@@ -545,7 +545,7 @@
           <div class="flex items-start gap-3 relative">
             <div class="w-6 h-6 rounded-full bg-[#1e3221] text-white flex items-center justify-center text-[10px] font-bold shadow shrink-0 z-10 font-serif-classic">4</div>
             <div class="bg-white/85 p-3 rounded-xl border border-[#c4a76c]/30 shadow-xs flex-1">
-              <span class="text-[11px] font-bold text-[#1a2e1d] block">04:00 Petang</span>
+              <span class="text-[11px] font-bold text-[#1a2e1d] block">04:30 Petang</span>
               <p class="font-serif-classic text-[13px] text-[#44634a]">Majlis Bersurai</p>
             </div>
           </div>
@@ -1600,7 +1600,7 @@
       const venue = document.getElementById('venueName')?.innerText?.trim() || "Balik Pulau";
       const address = document.getElementById('venueAddress')?.innerText?.trim() || "Balik Pulau, Pulau Pinang";
       const title = encodeURIComponent(`Walimatul Urus ${bride} & ${groom}`);
-      const details = encodeURIComponent(`Majlis Perkahwinan ${bride} & ${groom}\nLokasi: ${venue}, ${address}\nWaktu: 12:00 Tengah Hari - 4:00 Petang`);
+      const details = encodeURIComponent(`Majlis Perkahwinan ${bride} & ${groom}\nLokasi: ${venue}, ${address}\nWaktu: 12:00 Tengah Hari - 4:30 Petang`);
       const location = encodeURIComponent(`${venue}, ${address}`);
       const dates = "20261226T030000Z/20261226T080000Z";
       window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${dates}`, '_blank');
@@ -1613,7 +1613,7 @@
       const venue = document.getElementById('venueName')?.innerText?.trim() || "Balik Pulau";
       const address = document.getElementById('venueAddress')?.innerText?.trim() || "Balik Pulau, Pulau Pinang";
       const title = `Walimatul Urus ${bride} & ${groom}`;
-      const desc = `Majlis Perkahwinan ${bride} & ${groom}\\nTarikh: Sabtu, 26 Disember 2026\\nWaktu: 12:00 Tengah Hari - 4:00 Petang\\nLokasi: ${venue}, ${address}`;
+      const desc = `Majlis Perkahwinan ${bride} & ${groom}\\nTarikh: Sabtu, 26 Disember 2026\\nWaktu: 12:00 Tengah Hari - 4:30 Petang\\nLokasi: ${venue}, ${address}`;
       const location = `${venue}, ${address}`;
       const nowIso = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + "Z";
 
