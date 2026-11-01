@@ -424,7 +424,7 @@
           Sabtu, 26 Disember 2026
         </p>
         <p class="font-serif-classic text-sm text-[#44634a] mb-4">
-          11:00 Pagi — 4:00 Petang
+          12:00 Tengah Hari — 4:00 Petang
         </p>
 
         <!-- Countdown Boxes -->
@@ -1600,7 +1600,7 @@
       const venue = document.getElementById('venueName')?.innerText?.trim() || "Balik Pulau";
       const address = document.getElementById('venueAddress')?.innerText?.trim() || "Balik Pulau, Pulau Pinang";
       const title = encodeURIComponent(`Walimatul Urus ${bride} & ${groom}`);
-      const details = encodeURIComponent(`Majlis Perkahwinan ${bride} & ${groom}\nLokasi: ${venue}, ${address}\nWaktu: 11:00 Pagi - 4:00 Petang`);
+      const details = encodeURIComponent(`Majlis Perkahwinan ${bride} & ${groom}\nLokasi: ${venue}, ${address}\nWaktu: 12:00 Tengah Hari - 4:00 Petang`);
       const location = encodeURIComponent(`${venue}, ${address}`);
       const dates = "20261226T030000Z/20261226T080000Z";
       window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${dates}`, '_blank');
@@ -1613,7 +1613,7 @@
       const venue = document.getElementById('venueName')?.innerText?.trim() || "Balik Pulau";
       const address = document.getElementById('venueAddress')?.innerText?.trim() || "Balik Pulau, Pulau Pinang";
       const title = `Walimatul Urus ${bride} & ${groom}`;
-      const desc = `Majlis Perkahwinan ${bride} & ${groom}\\nTarikh: Sabtu, 26 Disember 2026\\nWaktu: 11:00 Pagi - 4:00 Petang\\nLokasi: ${venue}, ${address}`;
+      const desc = `Majlis Perkahwinan ${bride} & ${groom}\\nTarikh: Sabtu, 26 Disember 2026\\nWaktu: 12:00 Tengah Hari - 4:00 Petang\\nLokasi: ${venue}, ${address}`;
       const location = `${venue}, ${address}`;
       const nowIso = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + "Z";
 
