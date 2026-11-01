@@ -42,6 +42,27 @@
       font-family: 'Pinyon Script', 'Great Vibes', 'Beautique', cursive;
     }
 
+    /* Single-line responsive couple name heading - strictly centered */
+    .couple-full-name {
+      font-size: clamp(1.15rem, 5.2vw, 2.5rem);
+      line-height: 1.3;
+      white-space: nowrap;
+      text-align: center;
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+    }
+    /* Proportionally scaled groom name for generous breathing room */
+    .couple-groom-name {
+      font-size: clamp(1.02rem, 4.35vw, 2.15rem);
+    }
+    .couple-full-name span, .couple-groom-name span {
+      display: inline-block;
+      white-space: nowrap;
+      text-align: center;
+      margin: 0 auto;
+    }
+
     /* Classical Roman Serif for Walimatul Urus, Card Headings & BUKA pill */
     .font-serif-title, .font-heading {
       font-family: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
@@ -359,21 +380,21 @@
         </div>
 
         <p class="font-serif-classic text-sm sm:text-[14px] text-[#344b38] my-3.5 max-w-xs mx-auto leading-relaxed">
-          Dengan penuh rasa kesyukuran ke hadrat Ilahi, kami menjemput Dato' / Datin / Tuan / Puan / Encik / Cik sekeluarga hadir menyerikan majlis perkahwinan anakanda kami tercinta:
+          Dengan penuh rasa kesyukuran ke hadrat Ilahi, kami dengan segala hormatnya menjemput Dato' / Datin / Tuan / Puan / Encik / Cik sekeluarga untuk hadir bagi menyerikan majlis perkahwinan anakanda kami tercinta:
         </p>
 
         <!-- Bride & Groom Highlight: Pinyon Script Matching Front Lace Card -->
-        <div class="py-6 my-2 border-y border-[#2b4530]/15 bg-white/45 rounded-2xl">
-          <h2 id="brideFullName" class="font-script text-4xl sm:text-5xl text-[#1a2e1d] font-normal leading-tight">
-            Nur Hawa Izzatie
+        <div class="py-6 px-3 sm:px-6 my-2 border-y border-[#2b4530]/15 bg-white/45 rounded-2xl flex flex-col items-center justify-center text-center">
+          <h2 id="brideFullName" class="font-script couple-full-name text-[#1a2e1d] font-normal leading-tight w-full text-center">
+            <span>Nur Hawa Izzatie</span>
           </h2>
-          <div class="flex items-center justify-center my-2 gap-3">
+          <div class="flex items-center justify-center my-2 gap-3 w-full">
             <span class="h-[1px] w-12 bg-[#c4a76c]"></span>
             <span class="font-serif-classic text-base text-[#8e733e] italic font-semibold">&</span>
             <span class="h-[1px] w-12 bg-[#c4a76c]"></span>
           </div>
-          <h2 id="groomFullName" class="font-script text-4xl sm:text-5xl text-[#1a2e1d] font-normal leading-tight">
-            Muhammad Najmuddin
+          <h2 id="groomFullName" class="font-script couple-full-name couple-groom-name text-[#1a2e1d] font-normal leading-tight w-full text-center">
+            <span>Muhammad Najmuddin</span>
           </h2>
         </div>
 
@@ -495,7 +516,7 @@
           <div class="flex items-start gap-3 relative">
             <div class="w-6 h-6 rounded-full bg-[#1e3221] text-white flex items-center justify-center text-[10px] font-bold shadow shrink-0 z-10 font-serif-classic">1</div>
             <div class="bg-white/85 p-3 rounded-xl border border-[#c4a76c]/30 shadow-xs flex-1">
-              <span class="text-[11px] font-bold text-[#1a2e1d] block">11:00 Pagi</span>
+              <span class="text-[11px] font-bold text-[#1a2e1d] block">12:00 Tengah Hari</span>
               <p class="font-serif-classic text-[13px] text-[#44634a]">Ketibaan Tetamu & Jamuan Makan Bermula</p>
             </div>
           </div>
@@ -984,6 +1005,31 @@
     }
     window.scrollTo(0, 0);
 
+    // Auto-fit Couple Names so long names are 100% centered, never wrap or crop on any device
+    function fitCoupleNames() {
+      const groom = document.getElementById('groomFullName');
+      const bride = document.getElementById('brideFullName');
+      [bride, groom].forEach(h2 => {
+        if (!h2) return;
+        h2.style.fontSize = ''; // reset to CSS clamp
+        const span = h2.querySelector('span') || h2;
+        const container = h2.closest('.rounded-2xl') || h2.parentElement;
+        if (!container) return;
+        const availableW = Math.max(160, container.clientWidth - 32);
+        let size = parseFloat(window.getComputedStyle(h2).fontSize);
+        while (span.getBoundingClientRect().width > availableW && size > 12) {
+          size -= 0.5;
+          h2.style.fontSize = size + 'px';
+        }
+      });
+    }
+    window.addEventListener('load', fitCoupleNames);
+    window.addEventListener('resize', fitCoupleNames);
+    if ('fonts' in document) {
+      document.fonts.ready.then(fitCoupleNames);
+    }
+    setTimeout(fitCoupleNames, 150);
+
     // Check if any interactive modal is currently open
     function isModalOpen() {
       const editorModal = document.getElementById('editorModal');
@@ -1083,6 +1129,7 @@
 
       // 5. Smoothly scroll into details section on the same background
       setTimeout(() => {
+        fitCoupleNames();
         if (details) {
           details.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
@@ -1849,8 +1896,9 @@
       const cPhone2 = document.getElementById('editContactPhone2').value;
 
       // Update Card DOM
-      document.getElementById('brideFullName').innerText = bride;
-      document.getElementById('groomFullName').innerText = groom;
+      document.getElementById('brideFullName').innerHTML = `<span>${bride}</span>`;
+      document.getElementById('groomFullName').innerHTML = `<span>${groom}</span>`;
+      fitCoupleNames();
       document.getElementById('parentFather').innerText = father;
       document.getElementById('parentMother').innerText = mother;
       document.getElementById('weddingDateDisplay').innerText = dateText;
